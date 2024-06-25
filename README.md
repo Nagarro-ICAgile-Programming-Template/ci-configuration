@@ -12,7 +12,7 @@ This repository contains build shared worksflows for all repositories in the tem
 This is an example how to call the .NET github actions in your yml file.
 
 `
-jobs:<br>
-  call-dotnet-job:<br>
+jobs:  
+  call-dotnet-job:  
     uses: Nagarro-ICAgile-Programming-Template/04-refactoring-bingo/.github/workflows/dotnet.yml@main
 `
