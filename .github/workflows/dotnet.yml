@@ -4,10 +4,7 @@
 name: .NET build
 
 on: 
-  push:
-    paths-ignore:
-      - 'java/**'
-  workflow_dispatch:
+  workflow_call:
   
 defaults:
   run:
