@@ -38,29 +38,4 @@ The workflows need a specific dirctory layout to be reused. Take care that the n
 
 For the .NET build there must be a solution file in the root of the `csharp` directory. You can tanke any name for your solution.
 
-In the root of your `java` directory there must be a `pom.xml'. The structure should follow common Maven rules.
-
-<div
-    <ul id="repoList"></ul>
-
-    <script>
-        const orgName = 'Nagarro-ICAgile-Programming-Template'; // replace with your GitHub organization name
-        const token = 'YOUR_PERSONAL_ACCESS_TOKEN'; // replace with your GitHub personal access token
-
-        fetch(`https://api.github.com/orgs/${orgName}/repos`, {
-            headers: {
-                'Authorization': `token ${token}`
-            }
-        })
-        .then(response => response.json())
-        .then(data => {
-            const ul = document.getElementById('repoList');
-            data.forEach(repo => {
-                const li = document.createElement('li');
-                li.textContent = repo.name;
-                ul.appendChild(li);
-            });
-        })
-        .catch(error => console.error('Error:', error));
-    </script>
-</div>
+In the root of your `java` directory there must be a `pom.xml'. The structure should follow common Maven rules
