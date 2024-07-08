@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <ul id="repoList"></ul>
+
+    <script>
+        const orgName = 'Nagarro-ICAgile-Programming-Template'; // replace with your GitHub organization name
+        const token = 'YOUR_PERSONAL_ACCESS_TOKEN'; // replace with your GitHub personal access token
+
+        fetch(`https://api.github.com/orgs/${orgName}/repos`, {
+            headers: {
+                'Authorization': `token ${token}`
+            }
+        })
+        .then(response => response.json())
+        .then(data => {
+            const ul = document.getElementById('repoList');
+            data.forEach(repo => {
+                const li = document.createElement('li');
+                li.textContent = repo.name;
+                ul.appendChild(li);
+            });
+        })
+        .catch(error => console.error('Error:', error));
+    </script>
+</body>
+</html>
