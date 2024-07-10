@@ -26,7 +26,7 @@ jobs:
 
 ## Directory layout and naming conventions
 
-The workflows need a specific dirctory layout to be reused. Take care that the names are case-sensitve.
+The workflows need a specific directory layout to be reused. Take care that the names are case-sensitve.
 
 ```
 + my-repo
@@ -36,6 +36,6 @@ The workflows need a specific dirctory layout to be reused. Take care that the n
     pom.xml
 ```
 
-For the .NET build there must be a solution file in the root of the `csharp` directory. You can tanke any name for your solution.
+For the .NET build there must be a solution file in the root of the `csharp` directory. You can take any name for your solution and project folders.
 
-In the root of your `java` directory there must be a `pom.xml'. The structure should follow common Maven rules
+In the root of your `java` directory there must be a `pom.xml'. The structure should follow common Maven rules.
