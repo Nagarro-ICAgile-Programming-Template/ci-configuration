@@ -16,6 +16,21 @@ defaults:
     working-directory: ./java
     
 jobs:
+  check_java:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Setup Maven Action
+        uses: s4u/setup-maven-action@v1.14.0
+      - name: Get required JDK version from Maven project
+        run: |
+          JDK_RELEASE=$(mvn help:evaluate -Dexpression=maven.compiler.release -q -DforceStdout)
+          mvn dependency:list -DexcludeTransitive=true -Dsilent=true -DoutputFile=deps.txt
+          JAVA_DEPENDENCIES=$(cat deps.txt)
+          gh variable set JAVA_VERSION --body "$JDK_RELEASE"
+          gh variable set JAVA_DEPENDENCIES --body "$JAVA_DEPENDENCIES"
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+
   build:
 
     runs-on: ubuntu-latest
