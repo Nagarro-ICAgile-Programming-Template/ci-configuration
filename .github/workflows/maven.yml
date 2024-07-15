@@ -29,7 +29,7 @@ jobs:
       run: |
         JDK_RELEASE=$(mvn help:evaluate -Dexpression=maven.compiler.release -q -DforceStdout)
         mvn dependency:list -DexcludeTransitive=true -Dsilent=true -DoutputFile=deps.txt
-        JAVA_DEPENDENCIES=$(cat deps.txt | sed '1d' | sed sed 's/^[^\x00-\x1F\x7F]*//')
+        JAVA_DEPENDENCIES=$(cat deps.txt | sed '1d' | sed 's/^[^\x00-\x1F\x7F]*//')
         gh variable set JAVA_VERSION --body "$JDK_RELEASE"
         gh variable set JAVA_DEPENDENCIES --body "$JAVA_DEPENDENCIES"
       env:
