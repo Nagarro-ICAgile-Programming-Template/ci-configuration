@@ -12,6 +12,7 @@ The shared workflow is available via `.github/workflows/dotnet.yml` It contains 
 jobs:  
   call-dotnet-job:
     uses: Nagarro-ICAgile-Programming-Template/04-refactoring-bingo/.github/workflows/dotnet.yml@main
+    secrets: inherit
 ```
 
 ### Java
@@ -22,6 +23,7 @@ The shared workflow is available via `.github/workflows/maven.yml` It contains a
 jobs:  
   call-maven-job:
     uses: Nagarro-ICAgile-Programming-Template/04-refactoring-bingo/.github/workflows/maven.yml@main
+    secrets: inherit
 ```
 
 ## Directory layout and naming conventions
