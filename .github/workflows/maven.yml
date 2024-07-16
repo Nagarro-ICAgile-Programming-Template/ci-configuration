@@ -32,9 +32,7 @@ jobs:
         ARTIFACT=$(mvn help:evaluate -Dexpression='project.id' -N -q -DforceStdout)
         mvn dependency:list -DexcludeTransitive=true -Dsilent=true -DoutputFile=deps.txt
         JAVA_DEPENDENCIES=$(cat deps.txt)
-        gh variable set JAVA_VERSION --body "$JDK_RELEASE"
-        gh variable set JAVA_DEPENDENCIES --body "$JAVA_DEPENDENCIES"
-        gh variable set JAVA_INFO --body "$ARTIFACT $JDK_RELEASE \n$JAVA_DEPENDENCIES"
+        gh variable set JAVA_INFO --body "$ARTIFACT $JDK_RELEASE $JAVA_DEPENDENCIES"
       env:
         GH_TOKEN: ${{ secrets.GH_TOKEN }}
         
