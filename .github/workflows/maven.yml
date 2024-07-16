@@ -28,8 +28,8 @@ jobs:
     - name: Get infos about Maven project
       if: ${{ env.GH_TOKEN != '' }}
       run: |
-        JDK_RELEASE=$(mvn help:evaluate -Dexpression=maven.compiler.release -q -DforceStdout)
-        ARTIFACT=$(echo '${project.groupId}:${project.artifactId}' | mvn -q -DforceStdout help:evaluate)
+        JDK_RELEASE=$(mvn help:evaluate -Dexpression=maven.compiler.release -N -q -DforceStdout)
+        ARTIFACT=$(mvn help:evaluate -Dexpression='project.id' -N -q -DforceStdout)
         mvn dependency:list -DexcludeTransitive=true -Dsilent=true -DoutputFile=deps.txt
         JAVA_DEPENDENCIES=$(cat deps.txt)
         gh variable set JAVA_VERSION --body "$JDK_RELEASE"
